@@ -1,0 +1,18 @@
+<%- include("partials/header"); -%>
+    <h1>Home</h1>
+    <p> <%= startingContent %> </p>
+    <form action="/newblog" method="POST">
+      <button class="btn btn-primary" type="submit">New blog</button>
+    </form>
+  <% posts.forEach(function(post){ %>
+    <div class="blog">
+      <h1><%=post.title%></h1>
+      <p>
+      <%=post.content.substring(0, 100) + " ..."%>
+      <a class="btn btn-primary" href="/posts/<%=post.title%>">Read More</a>
+      </p>
+    </div>
+    <% }) %>
+
+
+<%- include("partials/footer"); -%>
